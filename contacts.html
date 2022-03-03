@@ -1,23 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Ilya Kuryshev - Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- The page supports both dark and light color schemes,
+         and the page author prefers / default is light. -->
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- If `prefers-color-scheme` is not supported, fall back to light mode.
+         In this case, inject the `light` CSS before the others, with
+         no media filter so that it will be downloaded with highest priority. -->
+    <script>
+      if (
+        window.matchMedia("(prefers-color-scheme: dark)").media === "not all"
+      ) {
+        document.documentElement.style.display = "none";
+        document.head.insertAdjacentHTML(
+          "beforeend",
+          '<link id="css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" onload="document.documentElement.style.display = \'\'">'
+        );
+      }
+    </script>
+    <!-- Load the alternate CSS first ...
+         in this case the Bootstrap-Dark Variant CSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+      media="(prefers-color-scheme: dark)"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <!-- and then the primary CSS last ...
+         in this case the (original) Bootstrap Variant CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <title>Ilya Kuryshev - Contacts</title>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand mb-0 h1" href="index.html">Ilya Kuryshev's Homepage</a>
+        <a class="navbar-brand mb-0 h1" href="index.html"
+          >Ilya Kuryshev's Homepage</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -32,13 +61,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="projects.html">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contacts.html">Contacts</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="contacts.html"
+                >Contacts</a
+              >
             </li>
           </ul>
         </div>
@@ -50,8 +84,26 @@
       <p>Typical.</p>
       <p>My <a href="https://github.com/SiJei">GitHub profile</a>.</p>
       <p>My <a href="https://www.linkedin.com/in/sijei/">LinkedIn</a> page.</p>
-      <p>And my <a href="mailto:sijeix2@gmail.com">email</a>.</p> 
-      <p class="text-muted"><small>I should warn you though, my email inbox is a garbage bin. Thanks to all the marketing emails! it definitely helps! /s</small></p>
+      <p>And my <a href="mailto:sijeix2@gmail.com">email</a>.</p>
+      <p class="text-muted">
+        <small
+          >I should warn you though, my email inbox is a garbage bin. Thanks to
+          all the marketing emails! it definitely helps! /s</small
+        >
+      </p>
     </div>
+    <footer class="w-100 bg-light">
+      <p>
+        This website uses
+        <a href="https://github.com/vinorodrigues/bootstrap-dark-5"
+          >Bootstrap 5 Dark Mode by Vino Rodrigues</a
+        >
+      </p>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
